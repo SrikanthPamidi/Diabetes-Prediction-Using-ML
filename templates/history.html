@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction History</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #a2214e;
+            --background-color: #f3f4f6;
+            --text-color: #1f2937;
+            --card-background: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        .navbar {
+            background-color: var(--card-background);
+            padding: 1rem;
+            display: flex;
+            justify-content: flex-end;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            margin: 0 10px;
+            border-radius: 0.25rem;
+            transition: background-color 0.3s ease;
+            font-weight: bold;
+        }
+
+        .content {
+            max-width: 960px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: var(--card-background);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            text-align: center;
+            color: var(--primary-color);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="navbar">
+        <a href="{{ url_for('index') }}" class="home-button">Home</a>
+        <a href="{{ url_for('form') }}" class="check-prediction-button">Check Prediction</a>
+        <a href="{{ url_for('diet') }}" class="diet-plan-button">Diet Plan</a>
+        <a href="{{ url_for('exercise') }}" class="exercise-plan-button">Exercise Plan</a>
+        <a href="{{ url_for('history') }}" class="history-button">History</a>
+    </div>
+
+    <div class="content">
+        <h1>Prediction History</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Pregnancies</th>
+                    <th>Glucose</th>
+                    <th>Blood Pressure</th>
+                    <th>Skin Thickness</th>
+                    <th>Insulin</th>
+                    <th>BMI</th>
+                    <th>Diabetes Pedigree Function</th>
+                    <th>Age</th>
+                    <th>Prediction</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for record in records %}
+                <tr>
+                    <td>{{ record.Pregnancies }}</td>
+                    <td>{{ record.Glucose }}</td>
+                    <td>{{ record.BloodPressure }}</td>
+                    <td>{{ record.SkinThickness }}</td>
+                    <td>{{ record.Insulin }}</td>
+                    <td>{{ record.BMI }}</td>
+                    <td>{{ record.DiabetesPedigreeFunction }}</td>
+                    <td>{{ record.Age }}</td>
+                    <td>{{ record.Prediction }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div ```html
+</body>
+</html>

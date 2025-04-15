@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meal Suggester</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #850bf1;
+            --primary-dark: #4d1296;
+            --background-color: #f3f4f6;
+            --text-color: #1f2937;
+            --card-background: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif; /* Use Poppins font */
+            background-color: var(--background-color);
+            color: var(--text-color);
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: var(--card-background);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+
+        .buttons {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .button {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 0 10px;
+            transition: background-color 0.3s ease;
+        }
+
+        .button:hover {
+            background-color: var(--primary-dark);
+        }
+
+        .meal-card {
+            background-color: var(--card-background);
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .meal-card h2 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+
+        .meal-card p {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Select Your Meal Type</h1>
+        <div class="buttons">
+            <button class="button" onclick="showVegMeals()">Veg</button>
+            <button class="button" onclick="showNonVegMeals()">Non-Veg</button>
+        </div>
+        <div id="meal-suggestions"></div>
+    </div>
+
+    <script>
+        function showVegMeals() {
+            const mealSuggestions = `
+                <div class='meal-card'>
+                    <h2>Breakfast</h2>
+                    <p>Nutrients: Fibers, Vitamin A, Vitamin E</p>
+                    <p>Fibers: Fruits like Berries, Apples, Avocados, Bananas, Passion Fruit, Guava<br>
+Vegetables like Broccoli, Green Peas, Carrots<br>
+Whole Grains like Oats, Barley, Brown Rice</p>
+
+                    <p>Examples: Carrots (Vitamin A), Spinach (Vitamin A & E), Oats (Fiber), Almonds (Vitamin E)</p>
+                    <p>Calories: 250-350</p>
+                </div>
+                <div class='meal-card'>
+                    <h2>Lunch</h2>
+                    <p>Nutrients: Proteins, Iron, Calcium, Omega-3</p>
+                    <p>Examples: Chickpeas (Protein & Iron), Lentils (Protein & Iron), Walnuts (Omega-3), Flaxseeds (Omega-3), Broccoli (Calcium)</p>
+                    <p>Calories: 400-500</p>
+                </div>
+                <div class='meal-card'>
+                    <h2>Dinner</h2>
+                    <p>Nutrients: Fiber, Magnesium, Vitamin C, Potassium</p>
+                    <p>Examples: Sweet Potatoes (Potassium), Lentils (Fiber), Zucchini (Vitamin C), Avocado (Magnesium & Potassium)</p>
+                    <p>Calories: 350-450</p>
+                </div>
+            `;
+            document.getElementById('meal-suggestions').innerHTML = mealSuggestions;
+        }
+
+        function showNonVegMeals() {
+            const mealSuggestions = `
+                <div class='meal-card'>
+                    <h2>Breakfast</h2>
+                    <p>Nutrients: Proteins, Vitamin D, Omega-3, Vitamin B12</p>
+                    <p>Examples: Eggs (Protein & Vitamin B12), Spinach (Vitamin B12), Milk (Vitamin D), Chia Seeds (Omega-3)</p>
+                    <p>Calories: 300-400</p>
+                </div>
+                <div class='meal-card'>
+                    <h2>Lunch</h2>
+                    <p>Nutrients: Proteins, Vitamin C, Iron, Zinc</p>
+                    <p>Examples: Chicken (Protein & Zinc), Quinoa (Protein & Iron), Broccoli (Vitamin C), Pumpkin Seeds (Zinc & Iron)</p>
+                    <p>Calories: 450-550</p>
+                </div>
+                <div class='meal-card'>
+                    <h2>Dinner</h2>
+                    <p>Nutrients: Omega-3, Vitamin B12, Fiber, Selenium</p>
+                    <p>Examples: Salmon (Omega-3 & Vitamin B12), Asparagus (Fiber), Brown Rice (Fiber), Brazil Nuts (Selenium)</p>
+                    <p>Calories: 500-600</p>
+                </div>
+            `;
+            document.getElementById('meal-suggestions').innerHTML = mealSuggestions;
+        }
+    </script>
+</body>
+</html>

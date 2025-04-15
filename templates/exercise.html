@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise Plans</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #08a6e5;
+            --primary-dark: #0e99d4;
+            --background-color: #f3f4f6;
+            --text-color: #1f2937;
+            --card-background: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif; /* Use Poppins font */
+            background-color: var(--background-color);
+            color: var(--text-color);
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+
+        .button-container {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .button {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            margin: 0 10px;
+            transition: background-color 0.3s;
+        }
+
+        .button:hover {
+            background-color: var(--primary-dark);
+        }
+
+        .exercise-plan {
+            display: none;
+            max-width: 600px;
+            margin: 20px auto;
+        }
+
+        .exercise {
+            margin-bottom: 20px;
+        }
+
+        .exercise p, .week-plan p {
+            margin: 0;
+        }
+
+        .week-plan {
+            margin-top: 40px;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            margin-bottom: 5px;
+            color: var(--primary-color);
+        }
+    </style>
+</head>
+<body>
+    <h1>Exercise Plans</h1>
+    <div class="button-container">
+        <button class="button" onclick="showPlan('under-18')">Age Below 18</button>
+        <button class="button" onclick="showPlan('18-50')">Age Between 18 to 50</button>
+        <button class="button" onclick="showPlan('above-50')">Age Above 50</button>
+    </div>
+
+    <div id="under-18" class="exercise-plan">
+        <h2>Exercise Plan for Age Below 18</h2>
+        <div class="exercise">
+            <h3>1. Cardio</h3>
+            <p>Engage in at least 30 minutes of cardio exercises like:</p>
+            <ul>
+                <li>Running or jogging</li>
+                <li>Cycling</li>
+                <li>Swimming</li>
+                <li>Jump rope</li>
+            </ul>
+        </div>
+        <div class="exercise">
+            <h3>2. Strength Training</h3>
+            <p>Perform strength exercises 2-3 times a week, such as:</p>
+            <ul>
+                <li>Push-ups</li>
+                <li>Squats</li>
+                <li>Lunges</li>
+                <li>Planks</li>
+            </ul>
+        </div>
+        <div class="exercise">
+            <h3>3. Flexibility and Balance</h3>
+            <p>Incorporate flexibility exercises daily, including:</p>
+            <ul>
+                <li>Yoga</li>
+                <li>Stretching routines</li>
+                <li>Balance exercises like standing on one foot</li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="18-50" class="exercise-plan">
+        <h2>Exercise Plan for Age 18 to 50</h2>
+        <div class="exercise">
+            <h3>1. Cardio</h3>
+            <p>Engage in 150-300 minutes of moderate-intensity cardio per week, such as:</p>
+            <ul>
+                <li>Hiking</li>
+                <li>Dancing</li>
+                <li>Rowing</li>
+                <li>Elliptical training</li>
+            </ul>
+        </div>
+        <div class="exercise">
+            <h3>2. Strength Training</h3>
+            <p>Perform strength exercises 3 times a week, focusing on different muscle groups each day:</p>
+            <ul>
+                <li>Day 1: Chest and triceps</li>
+                <li>Day 2: Back and biceps</li>
+                <li>Day 3: Legs and shoulders</li>
+            </ul>
+        </div>
+        <div class="exercise">
+            <h3>3. Flexibility and Core</h3>
+            <p>Incorporate flexibility and core exercises 2-3 times a week, including:</p>
+            <ul>
+                <li>Pilates</li>
+                <li>Dynamic stretching</li>
+                <li>Core exercises (planks, leg raises)</li>
+            </ul>
+        </div>
+        
+        <div class="week-plan">
+            <h3>Example Week Plan</h3>
+            <p>Monday: 45-minute hike + chest and triceps workout</p>
+            <p>Tuesday: 30 minutes of dancing + core exercises</p>
+            <p>Wednesday: Rest day with light stretching</p>
+            <p>Thursday: 30 minutes of rowing + back and biceps workout</p>
+            <p>Friday: 30-45 minute elliptical session + legs and shoulders workout</p>
+            <p>Saturday: Pilates session</p>
+            <p>Sunday: Rest day or active recovery (light walk or gentle yoga)</p>
+        </div>
+    </div>
+
+    <div id="above-50" class="exercise-plan">
+        <h2>Exercise Plan for Age Above 50</h2>
+        <div class="exercise">
+            <h3>1. Cardio</h3>
+            <p>Engage in 150 minutes of moderate-intensity cardio per week, such as:</p>
+            <ul>
+                <li>Walking</li>
+                <li>Swimming</li>
+                <li>Cycling</li>
+                <li>Water aerobics</li>
+            </ul>
+        </div>
+        <div class="exercise">
+            <h3>2. Strength Training</h3>
+            <p>Perform strength exercises 2 times a week, focusing on major muscle groups:</p>
+            <ul>
+                <li>Light weight lifting</li>
+                <li>Resistance band exercises</li>
+                <li>Bodyweight exercises (wall push-ups, seated squats)</li>
+            </ul>
+        </div>
+        <div class="exercise">
+            <h3>3. Flexibility and Balance</h3>
+            <p>Incorporate flexibility and balance exercises 3 times a week, including:</p>
+            <ul>
+                <li>Yoga</li>
+                <li>Tai Chi</li>
+                <li>Stretching routines</li>
+            </ul>
+        </div>
+        <div class="exercise">
+            <h2>4. Rest and Recovery</h2>
+            <p>Ensure adequate rest and recovery to prevent injury and promote overall health:</p>
+            <ul>
+                <li>At least two rest days per week</li>
+                <li>Active recovery activities like gentle walking or stretching</li>
+            </ul>
+        </div>
+
+        <div class="week-plan">
+            <h3>Example Week Plan</h3>
+            <p>Monday: 30-minute walk + light weight lifting</p>
+            <p>Tuesday: 30 minutes of swimming + stretching</p>
+            <p>Wednesday: Rest day with gentle yoga</p>
+            <p>Thursday: 30 minutes of cycling + resistance band exercises</p>
+            <p>Friday: 30-minute walk + Tai Chi session</p>
+            <p>Saturday: Water aerobics</p>
+            <p>Sunday: Rest day or active recovery (light walk or stretching)</p>
+        </div>
+    </div>
+
+    <script>
+        function showPlan(ageGroup) {
+            document.getElementById('under-18').style.display = 'none';
+            document.getElementById('18-50').style.display = 'none';
+            document.getElementById('above-50').style.display = 'none';
+            document.getElementById(ageGroup).style.display = 'block';
+        }
+    </script>
+</body>
+</html>

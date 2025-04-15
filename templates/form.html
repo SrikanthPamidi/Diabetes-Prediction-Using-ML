@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diabetes Prediction Form</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #6366f1;
+            --primary-dark: #4f46e5;
+            --secondary-color: #f0abfc;
+            --background-color: #f3f4f6;
+            --text-color: #1f2937;
+            --input-background: #ffffff;
+            --input-border: #d1d5db;
+            --input-focus: #a5b4fc;
+            --success-color: #10b981;
+            --error-color: #ef4444;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            background-color: var(--input-background);
+            border-radius: 16px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            width: 100%;
+            max-width: 500px;
+        }
+
+        h1 {
+            color: var(--primary-color);
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 28px;
+            font-weight: 700;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+            color: var(--text-color);
+        }
+
+        input[type="number"],
+        select {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid var(--input-border);
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border-color 0.3s ease;
+        }
+
+        input[type="number"]:focus,
+        select:focus {
+            outline: none;
+            border-color: var(--input-focus);
+        }
+
+        .input-group {
+            display: flex;
+            gap: 10px;
+        }
+
+        .input-group input {
+            flex: 1;
+        }
+
+        button {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: var(--primary-dark);
+        }
+
+        button[type="submit"] {
+            width: 100%;
+            margin-top: 20px;
+            background-color: var(--secondary-color);
+            color: var(--text-color);
+        }
+
+        button[type="submit"]:hover {
+            background-color: #e879f9;
+        }
+
+        #predictionResult {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 8px;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        .success {
+            background-color: var(--success-color);
+            color: white;
+        }
+
+        .error {
+            background-color: var(--error-color);
+            color: white;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.5s ease-out;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Diabetes Prediction Form</h1>
+        <form id="diabetesPredictionForm" method="POST" action="/predict">
+            <div class="form-group">
+                <label for="gender">Gender</label>
+                <select id="gender" name="gender" required>
+                    <option value="">Select gender</option>
+                    <option value="female">Female</option>
+                    <option value="male">Male</option>
+                </select>
+            </div>
+
+            <div id="pregnanciesField" class="form-group" style="display: none;">
+                <label for="pregnancies">Pregnancies</label>
+                <input type="number" id="pregnancies" name="pregnancies" min="0">
+            </div>
+
+            <div class="form-group">
+                <label for="age">Age</label>
+                <input type="number" id="age" name="age" min="0" required>
+            </div>
+
+            <div class="form-group">
+                <label for="glucose">Glucose</label>
+                <input type="number" id="glucose" name="glucose" min="0" step="0.1" required>
+            </div>
+
+            <div class="form-group">
+                <label for="bloodPressure">Blood Pressure</label>
+                <input type="number" id="bloodPressure" name="bloodPressure" min="0" step="0.1" required>
+            </div>
+
+            <div class="form-group">
+                <label for="skinThickness">Skin Thickness</label>
+                <input type="number" id="skinThickness" name="skinThickness" min="0" step="0.1" required>
+            </div>
+
+            <div class="form-group">
+                <label for="insulin">Insulin</label>
+                <input type="number" id="insulin" name="insulin" min="0" step="0.1" required>
+            </div>
+
+            <div class="form-group">
+                <label for="bmi">BMI</label>
+                <div class="input-group">
+                    <input type="number" id="bmi" name="bmi" min="0" step="0.1" required>
+                    <button type="button" onclick="calculateBMI()">Calculate</button>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="diabetesPedigreeFunction">Diabetes Pedigree Function</label>
+                <div class="input-group">
+                    <input type="number" id="diabetesPedigreeFunction" name="diabetesPedigreeFunction" min="0" step="0.01" required>
+                    <button type="button" onclick="calculatePedigree()">Calculate</button>
+                </div>
+            </div>
+
+            <button type="submit">Predict</button>
+        </form>
+
+        {% if prediction_text %}
+            <div id="predictionResult" class="fade-in {{ 'success' if 'Non' in prediction_text else 'error' }}">
+                {{ prediction_text }}
+            </div>
+        {% endif %}
+    </div>
+
+    <script>
+        document.getElementById('gender').addEventListener('change', function () {
+            const pregnanciesField = document.getElementById('pregnanciesField');
+            pregnanciesField.style.display = this.value === 'female' ? 'block' : 'none';
+        });
+
+        function calculateBMI() {
+            const height = prompt("Enter height in cm:");
+            const weight = prompt("Enter weight in kg:");
+            if (height && weight) {
+                const heightInMeters = height / 100;
+                const bmi = (weight / (heightInMeters * heightInMeters)).toFixed(1);
+                document.getElementById('bmi').value = bmi;
+            }
+        }
+
+        function calculatePedigree() {
+            const age = document.getElementById('age').value;
+            const diabeticRelatives = prompt("Enter the number of diabetic relatives:");
+            if (age && diabeticRelatives) {
+                const pedigreeValue = (parseInt(diabeticRelatives) * 0.5) + (parseInt(age) * 0.1);
+                document.getElementById('diabetesPedigreeFunction').value = pedigreeValue.toFixed(2);
+            } else {
+                alert("Please enter both age and the number of diabetic relatives.");
+            }
+        }
+    </script>
+</body>
+</html>
