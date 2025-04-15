@@ -4,13 +4,13 @@ A Flask-based web application that predicts whether a person is diabetic or not 
 
 ---
 
-##  Features
+## 🚀 Features
 
--  Predict diabetes using a pre-trained ML model
--  Input form for health metrics
--  Stores prediction history in MongoDB
--  Diet and  Exercise suggestion pages
--  Clean and modular code structure
+- 🧠 Predict diabetes using a pre-trained ML model
+- 📝 Input form for health metrics
+- 📊 Stores prediction history in MongoDB
+- 🍎 Diet and 🏋️ Exercise suggestion pages
+- 📁 Clean and modular code structure
 
 ---
 
@@ -23,7 +23,7 @@ A Flask-based web application that predicts whether a person is diabetic or not 
 
 ---
 
-##  Model & Preprocessing
+## 🧪 Model & Preprocessing
 
 - Model: `best_model.pkl`
 - Preprocessing tools:
@@ -34,7 +34,7 @@ A Flask-based web application that predicts whether a person is diabetic or not 
 
 ---
 
-##  Requirements
+## 🧾 Requirements
 
 Install the required packages using pip:
 
@@ -56,7 +56,7 @@ scikit-learn
 
 ---
 
-##  Environment Setup
+## ⚙️ Environment Setup
 
 Set the MongoDB URI using environment variable (or use default):
 
@@ -66,7 +66,7 @@ export MONGO_URI="mongodb://localhost:27017/history"
 
 ---
 
-##  How to Run
+## 🏃 How to Run
 
 ```bash
 python app.py
@@ -76,7 +76,7 @@ Visit `http://127.0.0.1:5000` in your browser.
 
 ---
 
-##  File Structure
+## 📁 File Structure
 
 ```
 .
@@ -97,7 +97,7 @@ Visit `http://127.0.0.1:5000` in your browser.
 
 ---
 
-##  Routes
+## 📌 Routes
 
 | Endpoint       | Description                        |
 |----------------|------------------------------------|
@@ -110,18 +110,18 @@ Visit `http://127.0.0.1:5000` in your browser.
 
 ---
 
-##  Database
+## 💾 Database
 
 All prediction records are stored in MongoDB under the `records` collection.
 
 ---
 
-##  Prediction Logic
+## 🤖 Prediction Logic
 
 The form captures user health inputs, applies preprocessing (categorization, encoding, scaling), and uses a trained model to predict diabetes risk. Results are stored in the database and shown on the frontend.
 
 ---
 
-##  Contact
+## 📬 Contact
 
 For queries or suggestions, feel free to reach out!
