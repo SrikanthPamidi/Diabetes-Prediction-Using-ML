@@ -10,3 +10,4 @@ imbalanced-learn
 flask==2.1.2
 werkzeug==2.1.0
 PyMongo==4.12.0
+gunicorn
