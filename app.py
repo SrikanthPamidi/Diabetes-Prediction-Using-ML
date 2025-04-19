@@ -1,5 +1,6 @@
 from flask import Flask, request, render_template
 from flask_pymongo import PyMongo
+import pandas as pd
 import joblib
 import dill
 import numpy as np
